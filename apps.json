@@ -1,4 +1,4 @@
 [
-  {"label": "test1", "imagefile": "app1.png"},
-  {"label": "test2", "imagefile": "app2.png"}
+{"label": "App1", "page": "app1.html", "imagefile": "app1.png"}, 
+{"label": "App2", "page": "app2.html", "imagefile": "app2.png"}
 ]
