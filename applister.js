@@ -11,14 +11,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     const appButtonsContainer = document.getElementById('appButtons');
 
     data.forEach(app => {
-      const button = document.createElement('button');
-      button.innerText = app.label;
+  const button = document.createElement('button');
+  button.innerText = app.label;
 
-      button.addEventListener('click', function () {
-        window.location.href = app.page; // Navigate to the specified HTML page
-      });
+  const image = document.createElement('img');
+  image.src = app.imagefile;
+  image.alt = app.label;
 
-      appButtonsContainer.appendChild(button);
+  button.appendChild(image);
+
+  button.addEventListener('click', function () {
+    window.location.href = app.page; // Navigate to the specified HTML page
+  });
+
+  appButtonsContainer.appendChild(button);
     });
   } catch (error) {
     console.error('Error fetching or processing apps.json:', error);
