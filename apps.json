@@ -1,4 +1,4 @@
 [
-  {"label": "App1", "imagefile": "app1.png", "page": "app1.html"},
-  {"label": "App2", "imagefile": "app2.png", "page": "app2.html"}
+  {"label": "Space Agency", "imagefile": "app1.png", "page": "sa.html"},
+  {"label": "Bad Piggies", "imagefile": "app2.png", "page": "bp.html"}
 ]
