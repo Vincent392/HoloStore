@@ -3,13 +3,24 @@
 
 // script.js
 
-// Assuming apps.json structure: [{"label": "App1", "page": "app1.html", "imagefile": "app1.png"}, {"label": "App2", "page": "app2.html", "imagefile": "app2.png"}, ...]
-fetch('apps.json')
-  .then(response => response.json())
-  .then(data => {
+let appsData; // Variable to store the apps data
+
+// Function to fetch and process apps.json
+function fetchAppsData() {
+  return fetch('apps.json')
+    .then(response => response.json())
+    .then(data => {
+      appsData = data;
+    })
+    .catch(error => console.error('Error fetching apps.json:', error));
+}
+
+// Call the function once to fetch apps.json
+fetchAppsData()
+  .then(() => {
     const appButtonsContainer = document.getElementById('appButtons');
-    
-    data.forEach(app => {
+
+    appsData.forEach(app => {
       const button = document.createElement('button');
       button.innerText = app.label;
 
@@ -19,11 +30,10 @@ fetch('apps.json')
 
       button.appendChild(image);
 
-      button.addEventListener('click', function() {
+      button.addEventListener('click', function () {
         window.location.href = app.page; // Navigate to the specified HTML page
       });
 
       appButtonsContainer.appendChild(button);
     });
-  })
-  .catch(error => console.error('Error fetching apps.json:', error));
+  });
