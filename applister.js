@@ -15,6 +15,7 @@ fetch('apps.json')
       image.src = app.imagefile;
       image.alt = app.label;
 
+      button.appendChild(document.createElement('br')); // Add a line break for spacing
       button.appendChild(image);
 
       appButtonsContainer.appendChild(button);
