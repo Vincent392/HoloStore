@@ -1,6 +1,8 @@
 // applister.js
 // made with chatgpt
 
+// script.js
+
 // Assuming apps.json structure: [{"label": "App1", "imagefile": "app1.png"}, {"label": "App2", "imagefile": "app2.png"}, ...]
 fetch('apps.json')
   .then(response => response.json())
@@ -9,13 +11,12 @@ fetch('apps.json')
     
     data.forEach(app => {
       const button = document.createElement('button');
-      button.innerText = app.label;
+      button.innerHTML = app.label + '<br>'; // Add a line break for spacing
 
       const image = document.createElement('img');
       image.src = app.imagefile;
       image.alt = app.label;
 
-      button.appendChild(document.createElement('br')); // Add a line break for spacing
       button.appendChild(image);
 
       appButtonsContainer.appendChild(button);
