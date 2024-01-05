@@ -3,35 +3,30 @@
 
 // script.js
 
-let appsData; // Variable to store the apps data
+let labels; // Variable to store the extracted labels
 
-// Function to fetch and process apps.json
-function fetchAppsData() {
+// Function to fetch and extract labels from apps.json
+function fetchLabels() {
   return fetch('apps.json')
     .then(response => response.json())
     .then(data => {
-      appsData = data;
+      labels = data.map(app => app.label); // Extracting only the "label" section
     })
     .catch(error => console.error('Error fetching apps.json:', error));
 }
 
-// Call the function once to fetch apps.json
-fetchAppsData()
+// Call the function once to fetch and extract labels from apps.json
+fetchLabels()
   .then(() => {
     const appButtonsContainer = document.getElementById('appButtons');
 
-    appsData.forEach(app => {
+    labels.forEach(label => {
       const button = document.createElement('button');
-      button.innerText = app.label;
-
-      const image = document.createElement('img');
-      image.src = app.imagefile;
-      image.alt = app.label;
-
-      button.appendChild(image);
+      button.innerText = label;
 
       button.addEventListener('click', function () {
-        window.location.href = app.page; // Navigate to the specified HTML page
+        // You can add your logic here for what happens on button click
+        console.log('Button clicked:', label);
       });
 
       appButtonsContainer.appendChild(button);
