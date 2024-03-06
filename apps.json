@@ -1,4 +1,4 @@
 [
   {"label": "Space Agency", "imagefile": "icons/Sa.png", "page": "sa.html"},
-  {"label": "Bad Piggies", "imagefile": "icons/pp.png", "page": "bp.html"}
+  {"label": "Bad Piggies", "imagefile": "icons/bp.png", "page": "bp.html"}
 ]
